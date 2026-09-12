@@ -1,0 +1,2 @@
+- [x] Update `README.md` with professional project documentation
+- [x] Create walkthrough artifact
