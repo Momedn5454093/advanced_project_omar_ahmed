@@ -15,7 +15,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
-  final dynamic validator;
+  final Function(String?) validator;
 
   const AppTextFormField({
     super.key,
@@ -35,7 +35,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: validator,
+      validator: (value) => validator(value),
       controller: controller,
 
       keyboardType: TextInputType.emailAddress,
@@ -66,6 +66,14 @@ class AppTextFormField extends StatelessWidget {
                 width: 1.3.w,
               ),
             ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: BorderSide(color: Colors.red, width: 1.3.w),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: BorderSide(color: Colors.red, width: 1.3.w),
+        ),
         hintText: hintText,
         hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
         suffixIcon: suffixIcon,
