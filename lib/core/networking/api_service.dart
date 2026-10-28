@@ -4,6 +4,8 @@ import 'package:retrofit/http.dart';
 
 import '../../features/login/data/models/login_request_body.dart';
 import '../../features/login/data/models/login_response_body.dart';
+import '../../features/sign_up/data/models/sign_up_request_body.dart';
+import '../../features/sign_up/data/models/sign_up_response_body.dart';
 import 'api_constants.dart';
 
 part 'api_service.g.dart';
@@ -14,4 +16,7 @@ abstract class ApiService {
 
   @POST(ApiConstants.login)
   Future<LoginResponseBody> login(@Body() LoginRequestBody loginRequestBody);
+
+  @POST(ApiConstants.signup)
+  Future<SignupResponse> signup(@Body() SignupRequestBody signupRequestBody);
 }
