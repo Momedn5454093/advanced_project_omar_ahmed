@@ -5,6 +5,7 @@ on:
     branches:
       - master
 
+
 jobs:
   distribute_to_firebase:
     runs-on: ubuntu-latest
