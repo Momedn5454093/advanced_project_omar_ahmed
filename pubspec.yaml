@@ -48,6 +48,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   freezed: ^4.0.0-dev.3
   retrofit_generator: ^10.2.12
+  firebase_core: ^5.1.0
 
 dev_dependencies:
   flutter_test:

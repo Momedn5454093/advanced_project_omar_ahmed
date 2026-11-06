@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
@@ -14,6 +17,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    buildFeatures {
+        resValues = true
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.advanced_project_omar_ahmed"
@@ -24,7 +31,22 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-
+    flavorDimensions += "default"
+    productFlavors {
+//        create("staging") {
+//            dimension = "default"
+//            applicationIdSuffix = ".staging"
+//        }
+        create("production") {
+            dimension = "default"
+            resValue("string", "app_name", "DocDoc Production")
+        }
+        create("development") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            resValue("string", "app_name", "DocDoc Development")
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
